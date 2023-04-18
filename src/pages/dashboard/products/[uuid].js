@@ -1,10 +1,10 @@
-import AdminProfilePage from "@/components/admin/adminProfile";
+import ProductProfilePage from "@/components/products/productPage";
 import axios from "axios";
 
 export default function ProductPage({ data }) {
   return (
     <div>
-      <AdminProfilePage data={data} />
+      <ProductProfilePage data={data} />
     </div>
   );
 }

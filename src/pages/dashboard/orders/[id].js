@@ -11,10 +11,8 @@ export default function Order({ data }) {
 
 export async function getServerSideProps(context) {
   try {
-    const uuid = context.params.uuid;
-    const response = await axios.get(
-      `http://localhost:3333/admin/order/${uuid}`
-    );
+    const id = context.params.id;
+    const response = await axios.get(`http://localhost:3333/admin/order/${id}`);
     const data = await response.data;
 
     return {

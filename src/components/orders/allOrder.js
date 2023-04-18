@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 export default function AllOrderPage({ data }) {
+  console.log(data);
   return (
     <div>
       <h1>View All Orders</h1>
@@ -15,9 +18,9 @@ export default function AllOrderPage({ data }) {
             </tr>
           </thead>
           <tbody>
-            {data.map((admin) => {
+            {data.map((order) => {
               return (
-                <tr key={admin.A_Id}>
+                <tr key={order.OrderId}>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
@@ -29,21 +32,57 @@ export default function AllOrderPage({ data }) {
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">{admin.A_Name}</div>
-                        <div className="text-sm opacity-50">{admin.A_Uuid}</div>
+                        <div className="font-bold">{order.OrderPhone}</div>
+                        <div className="text-sm opacity-50">
+                          {order.OrderCode}
+                        </div>
                       </div>
                     </div>
                   </td>
                   <td>
-                    {admin.A_Phone}
+                    {order.OrderAddress}
                     <br />
                     <span className="badge badge-ghost badge-sm">
-                      {admin.A_Gemder}
+                      {order.OrderStatus}
                     </span>
                   </td>
-                  <td>{admin.A_Email}</td>
+                  <td>
+                    {/* Human Readable Date */}
+                    {new Date(order.OrderPlacedDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }
+                    )}
+                    , {/* Human Readable Time */}
+                    {new Date(order.OrderPlacedDate).toLocaleTimeString(
+                      "en-US",
+                      {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      }
+                    )}
+                    <br />
+                    {/* Human Readable Date */}
+                    {new Date(order.OrderDeliveredDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }
+                    )}
+                  </td>
+
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <Link
+                      className="btn btn-ghost btn-xs"
+                      href={`orders/${order.OrderId}`}
+                    >
+                      Details
+                    </Link>
                   </th>
                 </tr>
               );

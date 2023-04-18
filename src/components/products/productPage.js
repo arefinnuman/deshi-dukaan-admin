@@ -4,9 +4,11 @@ import { MdDelete } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
 
 export default function ProductPage({ data }) {
+  console.log(data);
+
   const router = useRouter();
-  const { D_Uuid, D_Photo, D_Name, D_Email, D_Address, D_Phone, D_Gender } =
-    data;
+  const { P_Uuid, P_Photo, P_Name, P_Email, P_Address, P_Phone, P_Gender } =
+    data[0];
   return (
     <div>
       <div className="hero min-h-screen">
@@ -16,11 +18,11 @@ export default function ProductPage({ data }) {
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div className="">
-            <h1 className="text-5xl font-bold">{D_Name}</h1>
-            <p className="py-2">{D_Email} </p>
-            <p className="py-2">Address: {D_Address}</p>
-            <p className="py-2">Phone Number: {D_Phone}</p>
-            <p className="py-2">Gender: {D_Gender}</p>
+            <h1 className="text-5xl font-bold">{P_Name}</h1>
+            <p className="py-2">{P_Email} </p>
+            <p className="py-2">Address: {P_Address}</p>
+            <p className="py-2">Phone Number: {P_Phone}</p>
+            <p className="py-2">Gender: {P_Gender}</p>
 
             <div className="flex  items-center gap-2 my-5">
               <button className="btn btn-info">
