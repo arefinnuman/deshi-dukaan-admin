@@ -1,20 +1,9 @@
+import Link from "next/link";
+
 export default function AllProductsPage({ data }) {
   return (
     <div>
       <h1>Products</h1>
-
-      {/* {
-        "P_Id": 13,
-        "P_Uuid": "c7d482ae-79e9-43af-bbeb-da4b1872db1a",
-        "P_Name": "Note 12 Pro",
-        "P_Desc": "Best gaming phone",
-        "P_Qty": 5,
-        "P_Waranty": "1 year",
-        "P_Price": 58000,
-        "P_CreatedAt": "2023-03-13T02:43:45.772Z",
-        "P_ModifiedAt": "2023-03-13T02:43:45.772Z"
-    }, */}
-
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
@@ -35,7 +24,7 @@ export default function AllProductsPage({ data }) {
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img
-                            src="/tailwind-css-component-profile-2@56w.png"
+                            src="https://plus.unsplash.com/premium_photo-1675129626434-867201a9374d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80"
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
@@ -60,7 +49,12 @@ export default function AllProductsPage({ data }) {
                   </td>
                   <td>{product.P_Desc}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <Link
+                      className="btn btn-ghost btn-xs"
+                      href={`products/${product.P_Uuid}`}
+                    >
+                      details
+                    </Link>
                   </th>
                 </tr>
               );

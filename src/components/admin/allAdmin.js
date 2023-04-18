@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AllAdminPage({ data }) {
   return (
     <div className="mb-6">
@@ -23,7 +25,7 @@ export default function AllAdminPage({ data }) {
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img
-                            src="/tailwind-css-component-profile-2@56w.png"
+                            src="https://plus.unsplash.com/premium_photo-1675129626434-867201a9374d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80"
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
@@ -38,12 +40,17 @@ export default function AllAdminPage({ data }) {
                     {admin.A_Phone}
                     <br />
                     <span className="badge badge-ghost badge-sm">
-                      {admin.A_Gemder}
+                      {admin.A_Address}
                     </span>
                   </td>
                   <td>{admin.A_Email}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <Link
+                      className="btn btn-ghost btn-xs"
+                      href={`admins/${admin.A_Uuid}`}
+                    >
+                      details
+                    </Link>
                   </th>
                 </tr>
               );
@@ -53,10 +60,4 @@ export default function AllAdminPage({ data }) {
       </div>
     </div>
   );
-}
-
-{
-  /* <h1>{admin.A_Role}</h1>
-
-            <h1>{admin.A_CreatedAt}</h1> */
 }

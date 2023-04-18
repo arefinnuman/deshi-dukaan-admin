@@ -1,12 +1,11 @@
-import Link from "next/link";
-
-export default function AllSellerPage({ data }) {
-  console.log(data);
+export default function AllOrderPage({ data }) {
   return (
     <div>
-      <h1>All the Sellers are Here</h1>
+      <h1>View All Orders</h1>
+
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
+          {/* head */}
           <thead>
             <tr>
               <th>Name</th>
@@ -16,9 +15,9 @@ export default function AllSellerPage({ data }) {
             </tr>
           </thead>
           <tbody>
-            {data.map((seller) => {
+            {data.map((admin) => {
               return (
-                <tr key={seller.S_Id}>
+                <tr key={admin.A_Id}>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
@@ -30,28 +29,21 @@ export default function AllSellerPage({ data }) {
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">{seller.S_Name}</div>
-                        <div className="text-sm opacity-50">
-                          {seller.S_Uuid}
-                        </div>
+                        <div className="font-bold">{admin.A_Name}</div>
+                        <div className="text-sm opacity-50">{admin.A_Uuid}</div>
                       </div>
                     </div>
                   </td>
                   <td>
-                    {seller.S_Phone}
+                    {admin.A_Phone}
                     <br />
                     <span className="badge badge-ghost badge-sm">
-                      {seller.S_Address ? seller.S_Address : " Not Available"}
+                      {admin.A_Gemder}
                     </span>
                   </td>
-                  <td>{seller.S_Email}</td>
+                  <td>{admin.A_Email}</td>
                   <th>
-                    <Link
-                      className="btn btn-ghost btn-xs"
-                      href={`sellers/${seller.S_Uuid}`}
-                    >
-                      details
-                    </Link>
+                    <button className="btn btn-ghost btn-xs">details</button>
                   </th>
                 </tr>
               );

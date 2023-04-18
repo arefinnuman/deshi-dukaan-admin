@@ -1,26 +1,26 @@
 import SideNavbar from "@/components/dashboard/SideNavbar";
-import AllProductsPage from "@/components/products/allProducts";
+import AllOrderPage from "@/components/orders/allOrder";
 import Footer from "@/pages/layouts/footer";
 import Header from "@/pages/layouts/header";
 import axios from "axios";
 import Head from "next/head";
 
-export default function AllProducts({ data }) {
+export default function AllOrders({ data }) {
   return (
     <div>
-      <AllProductsPage data={data} />
+      <AllOrderPage data={data} />
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get("http://localhost:3333/admin/products");
+  const response = await axios.get("http://localhost:3333/admin/orders");
   const data = await response.data;
 
   return { props: { data } };
 }
 
-AllProducts.getLayout = function getLayout(page) {
+AllOrders.getLayout = function getLayout(page) {
   return (
     <>
       <Head>
