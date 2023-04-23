@@ -19,6 +19,7 @@ export default function SideNavbar() {
             <li>
               <Link href="/dashboard/admins">View All Admins</Link>
             </li>
+
             <li>
               <Link href="/dashboard/customers">View All Customer</Link>
             </li>
@@ -40,9 +41,11 @@ export default function SideNavbar() {
             </li>
 
             <li>
-              <Link href="/dashboard/payment-types">
-                View All Payments Method
-              </Link>
+              <Link href="/dashboard/add-admin">Add Admin</Link>
+            </li>
+
+            <li>
+              <Link href="/dashboard/add-seller">Add Seller</Link>
             </li>
           </ul>
         </div>

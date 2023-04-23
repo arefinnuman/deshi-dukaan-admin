@@ -11,7 +11,7 @@ export default function AllProductsPage({ data }) {
             <tr>
               <th>Name</th>
               <th>Details</th>
-              <th>Mail</th>
+              <th>Description</th>
               <th></th>
             </tr>
           </thead>
@@ -47,7 +47,19 @@ export default function AllProductsPage({ data }) {
                       {product.P_Qty} pcs
                     </span>
                   </td>
-                  <td>{product.P_Desc}</td>
+                  <td>
+                    {product.P_Desc.length > 50
+                      ? product.P_Desc.slice(0, 50) + "..."
+                      : product.P_Desc}
+                    <br />
+                    <span className="badge badge-ghost mr-2 badge-sm">
+                      {product.category.CategoryName}
+                    </span>
+
+                    <span className="badge mr-2 badge-sm">
+                      {product.seller.S_Name}
+                    </span>
+                  </td>
                   <th>
                     <Link
                       className="btn btn-ghost btn-xs"

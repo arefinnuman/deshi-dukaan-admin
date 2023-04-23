@@ -67,7 +67,7 @@ export default function SellerProfile({ data }) {
         </div>
       </div>
       <div className="flex flex-col">
-        <h1 className="text-2xl font-semibold">Assigned Seller</h1>
+        <h1 className="text-2xl font-semibold">Seller Post</h1>
         {data[0].products.map((product) => {
           return (
             <div key={product.P_Id} className="card w-96 bg-secondary m-5">

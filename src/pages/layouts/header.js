@@ -51,7 +51,7 @@ export default function Header() {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <Link href="/login" className="btn btn-sm btn-outline btn-primary">
+          <Link href="/signin" className="btn btn-sm btn-outline btn-primary">
             Login
           </Link>
         </div>

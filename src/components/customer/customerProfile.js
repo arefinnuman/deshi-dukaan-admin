@@ -19,13 +19,8 @@ export default function CustomerProfilePage({ data }) {
   const router = useRouter();
 
   // human readable date
-  const date = new Date(C_CreatedAt);
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const dt = date.getDate();
-  const realDate = year + "-" + month + "-" + dt;
 
-  const humanReadableDate = new Date(realDate).toDateString("en-US", {
+  const humanReadableDate = new Date(C_CreatedAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -70,7 +65,7 @@ export default function CustomerProfilePage({ data }) {
         <div></div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-2xl font-semibold">Assigned Seller</h1>
+        <h1 className="text-2xl font-semibold">Orders Item</h1>
         {data[0].orders.map((order) => {
           return (
             <div key={order.O_Id} className="card w-96 bg-secondary m-5">
@@ -80,7 +75,7 @@ export default function CustomerProfilePage({ data }) {
                 <p className="text-bold"></p>
                 <p className="text-bold">Phone: {order.OrderPhone}</p>
                 <p className="text-bold">
-                  Location:
+                  Location: <span> </span>
                   {/* Checking Location is avialable or not  */}
                   {order.OrderAddress ? order.OrderAddress : " Not Available"}
                 </p>
